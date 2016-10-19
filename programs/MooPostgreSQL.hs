@@ -5,7 +5,7 @@ where
 
 import Database.HDBC.PostgreSQL (connectPostgreSQL)
 import Prelude  hiding (lookup)
-import System.Environment (getArgs, setEnv)
+import System.Environment (getArgs)
 import System.Exit
 
 import Database.Schema.Migrations.Backend.HDBC (hdbcBackend)
