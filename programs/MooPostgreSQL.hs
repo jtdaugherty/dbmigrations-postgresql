@@ -8,6 +8,7 @@ import Prelude  hiding (lookup)
 import System.Environment (getArgs)
 import System.Exit
 
+import Database.Schema.Migrations.Backend (DatabaseType(PostgreSQL))
 import Database.Schema.Migrations.Backend.HDBC (hdbcBackend)
 import Moo.Core
 import Moo.Main
@@ -23,7 +24,7 @@ main = do
     Right conf -> do
       let connectionString = _connectionString conf
       connection <- connectPostgreSQL connectionString
-      let backend = hdbcBackend connection
+      let backend = hdbcBackend PostgreSQL connection
           parameters = makeParameters conf backend
       mainWithParameters args parameters
 
