@@ -1,30 +1,17 @@
 Name:                dbmigrations-postgresql
 Version:             2.0.0
-Synopsis:            The moo executable for PostgreSQL to work with dbmigrations
+Synopsis:            The dbmigrations tool built for PostgreSQL databases
 Description:         This package contains the executable to work with
                      the dbmigrations package when the database backend
                      is PostgreSQL. See the package dbmigrations for details
                      about the dbmigrations project in general.
 
-                     This particular package only supports PostgreSQL.
-                     There are other similar packages for other
-                     databases, for example for MySQL and SQLite.
-
                      To get started, see the 'README.md'
                      (https://github.com/jtdaugherty/dbmigrations/blob/master/README.md)
                      and 'MOO.TXT'
-                     (https://raw.githubusercontent.com/jtdaugherty/dbmigrations/master/MOO.TXT)
-                     files included in the dbmigrations package and to
-                     the usage output for the 'moo-postgresql' command.
-
-                     The executable in this package works exactly the
-                     same (as described in the dbmigrations package),
-                     with only two differences:
-                     * The executable this package provides is called
-                       'moo-postgresql' instead of 'moo'.
-                     * The executable in this package only supports PostgreSQL.
-                       Consequently, you do not need to specify the
-                       database type via DBM_DATABASE_TYPE.
+                     (https://github.com/jtdaugherty/dbmigrations/blob/master/MOO.TXT)
+                     files included in the dbmigrations package and the
+                     usage output for the 'moo-postgresql' command.
 
 Category:            Database
 Author:              Jonathan Daugherty <cygnus@foobox.com>
