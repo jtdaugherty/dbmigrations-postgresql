@@ -2,7 +2,6 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 module Main where
 
-import Database.Schema.Migrations.Backend (DatabaseType(PostgreSQL))
 import Database.Schema.Migrations.Backend.HDBC (hdbcBackend)
 import Database.Schema.Migrations.Test.BackendTest as BackendTest
 
@@ -19,9 +18,8 @@ data PostgreSQLBackendConnection =
     forall a. HDBC.IConnection a => HDBCConnection a
 
 instance BackendConnection PostgreSQLBackendConnection where
-    getDatabaseType _ = PostgreSQL
-    migrationBackend databaseType (HDBCConnection c) =
-        hdbcBackend databaseType c
+    supportsTransactionalDDL = const True
+    makeBackend (HDBCConnection c) = hdbcBackend c
     commit (HDBCConnection c) = HDBC.commit c
     withTransaction (HDBCConnection c) transaction =
         HDBC.withTransaction c (transaction . HDBCConnection)
